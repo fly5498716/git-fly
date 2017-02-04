@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+
+</head>
+<body>
+<input type="number" id="text1" onkeyup="getCount()">
+<input type="number" id="text2" onkeyup="getCount()">
+<input type="number" id="text3">
+<div id="checkboxs">
+    <input type="checkbox">A
+    <input type="checkbox">B
+    <input type="checkbox">C
+    <input type="checkbox">D
+</div>
+<script src="../js/zepto.js"></script>
+<script>
+    var $all = function(s){
+        return document.querySelectorAll(s);
+    }
+    var cks = $all("#checkboxs input");//获取到所以的复选框
+    //下标0开始设置第1，3，4选中
+    cks[0].checked = true;
+    cks[2].checked = true;
+    cks[3].checked = true;
+</script>
+
+<script>
+    function getCount(){
+        var num1 = parseInt(document.getElementById("text1").value);
+        var num2 = parseInt(document.getElementById("text2").value);
+        if(num1 && num2){
+            document.getElementById("text3").value = (num1+num2);
+        }
+    }
+</script>
+</body>
+
+</html>

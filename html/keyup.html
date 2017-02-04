@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <input id="tag" type="text" placeholder="输入空格/回车/逗号结束">
+    <ul id="main"></ul>
+    <script>
+       var jobs = document.getElementById("tag"),
+            _content = document.getElementById("main");
+        jobs.addEventListener("keyup",function(e) {
+            if(e.keyCode===13||e.keyCode===32){
+                addTags(jobs.value);
+                jobs.value="";
+
+            }else if(e.keyCode===188){
+                //按下了中文或英文的逗号
+                var str = jobs.value;
+                //str = str.split(",")[0];这一行去掉逗号
+                addTags(str);
+                jobs.value = "";
+            }
+        });
+
+        function addTags(str) {
+            var nodes = _content.childNodes;
+            var flag = true;//是否存在相同的内容
+            for(var n = 0;len = nodes.length, n < len; n++){
+                if(nodes[n].innerHTML === str){//这里需要去掉前后的空格不然" aaa" "aaa "显示是一样的
+                    flag = false;
+                    break;
+                }
+            }
+            if(flag && str.trim() !== ""){
+                if(nodes.length < 10){//长度大于10移除第一个子节点
+                    createItem(str, _content);
+                }else{
+                    _content.removeChild(_content.childNodes[0]);
+                    createItem(str, _content);
+                }
+            }
+        }
+
+        function createItem(str, el) {
+           var li = document.createElement("li");
+            li.innerHTML = str;
+            el.appendChild(li);
+        }
+    </script>
+</body>
+</html>

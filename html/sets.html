@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<script src="../js/zepto.js"></script>
+<body>
+   <select id="lv1"></select>
+   <select id="lv2"></select>
+<script>
+    var lv1 = $("#lv1"),lv2 = $("#lv2"),data1,data2;
+    data1 = [
+        {label:'aa',value:'1'},
+        {label:'bb',value:'2'},
+        {label:'cc',value:'3'}
+    ];
+    data1.forEach(function(item) {
+        lv1.append('<option value="'+item.value+'">'+item.label+'</option>');
+    });
+    //初始化
+    setValue(lv1.val());
+
+    lv1.on("change", function() {
+        var val = $(this).val();
+        setValue(val);
+    });
+
+    function setValue(value) {
+        //ajax请求对应的值return data2
+        lv2.html("");//每次变化清空子节点
+        switch(value) {
+            case "1":
+               data2 = [
+                    {label:'aa1',value:'a-1'},
+                    {label:'aa2',value:'a-2'},
+                    {label:'aa3',value:'a-3'}
+                ];
+            break;
+            case "2":
+                data2 = [
+                    {label:'bb1',value:'b-1'},
+                    {label:'bb2',value:'b-2'},
+                    {label:'bb3',value:'b-3'}
+                ];
+            break;
+            case "3":
+                data2 = [
+                    {label:'cc1',value:'c-1'},
+                    {label:'cc2',value:'c-2'},
+                    {label:'cc3',value:'c-3'}
+                ];
+            break;
+
+        }
+        data2.forEach(function(item) {
+            lv2.append('<option value="'+item.value+'">'+item.label+'</option>');
+        });
+    }
+</script>
+</body>
+</html>

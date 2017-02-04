@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<table id="tb">
+    <tr>
+        <td>编号</td>
+        <td>名字</td>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>1</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>2</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>3</td>
+    </tr>
+</table>
+<div id="more">添加更多</div>
+<script src="../js/zepto.js"></script>
+<script>
+
+    $("#more").on("click",function(){
+        ajax();
+    });
+    $("#tb").on("click","td",function(){
+        $(this).html(window.prompt());
+    })
+    function ajax(){
+        var url = "";//求求后台的url
+        var param = {};
+        param.pageNo = 2;//这里是你要请求的数据是第几页
+        param.pageSize = 10;//这里是每页多少条
+//    $.ajax({
+//        type: 'GET',//GET/POST
+//        url: url + "?data=" + JSON.stringify(param),
+//        success: function (data, textStatus) {
+        var data = [{id:"4",name:"4"},{id:"5",name:"5"}];
+        //根据你后台返回的数据生成行和列
+        for (var i = 0; len = data.length, i < len; i++) {
+            var tr = "<tr><td>"+data[i].id+"</td><td>"+data[i].name+"</td></tr>";
+            $("#tb").append(tr);
+        }
+
+//        },
+//        error: function (XMLHttpRequest, textStatus, errorThrown) {
+//            alert("XMLHttpRequest:" + XMLHttpRequest + ",textStatus:" + textStatus + ",errorThrown:" + errorThrown)
+//        }
+    }
+
+</script>
+</body>
+</html>

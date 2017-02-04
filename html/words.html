@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<input type="text"  id="txt"> <br />
+<input id="btn" type="button" value="search" />
+<div id="show">content</div>
+<script src="../js/zepto.js"></script>
+<script>
+    //回车
+    $("#txt").on("keyup",function(e){
+        var val = $(this).val();
+        if(e.keyCode === 13) {
+            if(val !== ""){
+                window.location.href = "http://www.baidu.com?id="+val;
+            }else{
+                alert("id不能为空");
+            }
+        }
+    });
+    //按钮
+    $("#btn").on("click",function() {
+        var val = $("#txt").val();
+        if(val !== ""){
+            window.location.href = "http://www.baidu.com?id="+val;
+        }else{
+            alert("id不能为空");
+        }
+    });
+    var t,start = "2016-08-17 2:25:25",//开始时间
+            content = document.getElementById("show"),//展示的div
+            total = 8;//倒计时时长8小时
+       t = setInterval(function() {
+           var useTime = Math.floor((new Date().getTime() - new Date(start).getTime())/1000);
+           if(useTime < total * 3600){
+               var h = Math.floor((total * 3600 - useTime) / 3600);
+               var m = Math.floor(((total * 3600 - useTime) % 3600) / 60);
+               var s = ((total * 3600 - useTime) % 3600) % 60;
+               content.innerHTML = (h+"时"+m+"分"+s+"秒");
+           }else{
+               content.innerHTML = "结束...";
+               clearInterval(t);
+           }
+       },1000);
+
+</script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<script>
+    window.onload = function () {
+        var box = document.getElementById('box');
+        var play = document.getElementById('play');
+        play.onclick = function () {
+            //alert(box.offsetLeft);
+            move();
+        };
+        var timer = null;
+        //移动函数
+        function move() {
+            timer = setInterval(function () {
+                var type = 'left';
+                box.style.left = box.offsetLeft + 10 + 'px';
+                if (box.offsetLeft > 600 && type === 'left') {
+                    box.innerHTML='hello';
+                    top = box.offsetTop + 10 +'px';
+                    type = 'down';
+                 
+                }
+                console.log(box.style);
+                if(top > 400 && type === 'down'){
+                    type = 'right';
+                    box.style.left = box.offsetLeft - 10 +'px';
+                }
+
+                if(box.offsetLeft === 0 && type === 'right'){
+                       clearInterval(timer);
+                }
+                //console.log(box.style.left);
+            }, 300);
+        }
+    };
+</script>
+<body>
+    <div id="box" style="width:100px;height: 100px;border:1px #ccc solid;position: relative;background-color:black;color:white"></div>
+    <input type="button" value="play" id="play">
+</body>
+</html>

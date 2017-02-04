@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>性能优化</title>
+    <style>
+        #action-list li {
+            padding: 10px 15px;
+            cursor: pointer;
+        }
+         .now{
+             background-color: orange;
+             height:20px;
+             z-index: 1;
+             border-top-left-radius:6px ;
+             border-bottom-left-radius:6px ;
+         }
+        .total{
+            border:1px solid #ccc;
+            border-radius: 6px;
+            height:20px;
+            text-align: center;
+        }
+        .vl{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<h2>点击以下做出相应的动作</h2>
+    <ul id="action-list">
+        <li id="action-a">页面输入hello world</li>
+        <li id="action-b">页面弹出hello world</li>
+        <li id="action-c">页面确认hello world</li>
+    </ul>
+    <script src="../js/zepto.js"></script>
+    <script>
+        function init() {
+            var child = document.querySelectorAll("li");
+            for (var i = 0; len = child.length,i < len ; i++) {
+                child[i].onclick = function () {
+                    alertTip(this);
+                }
+            }
+        }
+
+        function alertTip(obj){
+            switch(obj.id){
+                case "action-a":
+                    prompt("输入Hello World：");
+                    break;
+                case "action-b":
+                    alert("Hello World");
+                    break;
+                case "action-c":
+                    alert("Hello World");
+                    break;
+            }
+        }
+        init();
+    </script>
+<div class="abc"><span id="aaa1" data1="111"></span></div>
+<div class="abc"><span id="aaa2" data2="222"></span></div>
+<div class="abc"><span id="aaa3" data3="333"></span></div>
+<div class="abc"><span id="aaa4" data4="444"></span></div>
+<div class="total">
+    <div class="now"></div>
+    <span class="vl"></span>
+</div>
+<script>
+    var total = 300,now = 15;
+    $(".total").css("width",total+"px");
+    $(".now").css("width",now+"px");
+    $(".vl").html(now+"/"+total);
+    function  getadata() {
+//                $.ajax({
+//                    type:"get",
+//                    url:"test.php",
+//                    data:"act="+c,
+//                    success: function(msg){
+                        var msg = ['content1','content2','content3','content4'];//你返回的数据
+                        $('.abc').each(function (i) {
+                            var c = $('#aaa'+(i+1)).attr('data'+(i+1));
+                            $('#aaa'+(i+1)).html(msg[i]);
+                        });
+//                    }
+//                });
+    }
+
+    $(function() {
+        setInterval('getadata()', 5000);
+    });
+</script>
+</body>
+</html>

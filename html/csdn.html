@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<style>
+    #father{
+        width: 800px;
+        height: 50px;
+        border:2px solid #999;
+    }
+
+    #son{
+        width: 0%;
+        height: 50px;
+        background-color: #abcedf;
+    }
+
+    #start{
+        width:50px;
+        height:25px;
+        background:pink;
+    }
+</style>
+<body>
+拼命加载中..... <span id='jindu'><!-- 50% --></span>
+<div id='father'>
+    <div id='son'></div>
+</div>
+
+<div id="start">开始</div>
+<script>
+    var son = document.getElementById('son');
+    var jindu = document.getElementById('jindu');
+    var start = document.getElementById('start');
+    var m = 0;
+    var t;
+    start.onclick = run;
+    function run(){
+        if( m <= 100){
+            t = setInterval(run,1000);
+            son.style.width = m + '%';  // 每次宽度加%
+            jindu.innerHTML = m + '%'; // 每次都把宽度显示出来
+            m++;
+        }else{
+            clearInterval(t);
+        }
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html >
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>test</title>
+</head>
+<style>
+    ul li{
+        list-style: none;
+        height:40px;
+        line-height:40px;
+        width: 80px;
+        text-align: center;
+        background-color: #1a1a1a;
+        color:#FFFFFF;
+    }
+    .active{
+        background-color: #0050ef;
+    }
+</style>
+<body>
+<ul id="lists"></ul>
+<ul id="test">
+    <li><a>aaa</a>
+        <ul style="display: none"><li></li></ul>
+    </li>
+</ul>
+<div>
+    <label>籍贯：</label>
+    <select id="userAttrArea" class="easyui-combobox" name="jg-sheng" data-options="width:150,height:33">
+        <option id="choosePro" value="">-省-</option>
+    </select>
+    <select id="userAttrCity" class="easyui-combobox" name="jg-shi" data-options="width:150,height:33">
+        <option value="">-市-</option>
+    </select>
+    <select id="userAttrCounty" class="easyui-combobox" name="jg-xian" data-options="width:150,height:33">
+        <option value="">-县-</option>
+    </select>
+</div>
+<script src="../js/zepto.js"></script>
+<script>
+    $(document).ready(function () {
+//    $.getJSON("/content/area.json",function (obj) {
+               var data = [{key:0,value:"node0"},{key:1,value:'node1'}],arr = [];
+               for(var i = 0; i<data.length; i++){
+                    var html = "<option value='" + data[i].key + "'>" + data[i].value + "</option>";//jquery方式1
+                    arr.push(html);//数组保存方式2
+//                  $("#userAttrArea").append(html);//数组保存方式2
+//                  $("#userAttrArea")[0].options.add(new Option(data[i].value, data[i].key));//原生option方式3
+               }
+               $("#userAttrArea").append(arr.join(""));//数组保存方式2
+//     })
+    })
+    var _array = [1,2,3,4,5,6,7,8,9,10];
+    _array.forEach(function(val){
+        $("#lists").append("<li>第"+val+"集</li>");
+    })
+
+    $("#lists li").bind("click",function(){
+        $(this).siblings().removeClass("active");
+        $(this).addClass("active");
+    });
+
+   var u = document.getElementById("test");
+    u.onmouseover = function(){
+        this.querySelector("ul").style.display = 'block';
+    }
+</script>
+</body>
+</html>

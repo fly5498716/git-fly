@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<style>
+    .left{
+        width:19.5%;
+    }
+    .right{
+        width:80.2%;
+    }
+    .main{
+        height:200px;
+        opacity: 0.7;
+        filter: progid:DXImageTransform.Microsoft.Alpha(opacity=70);
+        background-color: lightgray;
+        line-height: 200px;
+        float: left;
+        text-align: center;
+        border: 1px white solid;
+        pading:2px;
+        color:white;
+    }
+    .main:hover{
+        opacity: 1;
+    }
+</style>
+<body>
+<a href="http://www.dianping.com/" target="_Blank">
+    <div class="left main" data-page="random-page">
+        微信电脑版
+    </div>
+</a>
+<a href="http://www.dianping.com/" target="_Blank">
+    <div class="right main" data-page="random-page">
+        大众点评
+    </div>
+</a>
+<input type="file">
+<table id="test">
+    <tr>
+        <td>id</td>
+        <td>name</td>
+        <td>age</td>
+        <td>action</td>
+    </tr>
+    <tr>
+        <td>001</td>
+        <td>jack</td>
+        <td>18</td>
+        <td>
+            <input type="button"onclick="save(this)" value="save"/>
+        </td>
+    </tr>
+    <tr>
+        <td>002</td>
+        <td>tom</td>
+        <td>22</td>
+        <td>
+            <input type="button"onclick="save(this)" value="save"/>
+        </td>
+    </tr>
+</table>
+<script src="../js/zepto.js"></script>
+<script>
+    function save(obj){
+        var index = $(obj).parent().parent().index();
+        var array = $("#test tr");
+        for(var i = 0; len = $(array[index]).children().length,i<len; i++){
+            var value = $(array[index]).children()[i].innerHTML;
+            if(value.indexOf("input") === -1 && value.indexOf("button" ===-1)){
+                console.log(value)
+            }
+        }
+    }
+</script>
+<script>
+    var f = document.getElementsByTagName("input");
+    if(f){
+        console.log(f[0].files[0].name)
+    }
+</script>
+</body>
+</html>

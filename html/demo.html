@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<style>
+    ul{
+        list-style: none;
+    }
+    ul li{
+        line-height: 30px;
+    }
+    .left{
+        width : 15%;
+        height : 250px;
+        float: left;
+        border: 1px #ccc solid;
+    }
+    .right{
+        width: 84%;
+        height: 250px;
+        float: right;
+        border: 1px #ccc solid;
+    }
+</style>
+<body>
+<div class="left">
+    <div id = "leftMenu"></div>
+</div>
+<div class="right">
+    <h1 class="content">
+        这边展示内容;
+    </h1>
+</div>
+<!--这个js可以换成jquery-->
+<script src="../js/zepto.js"></script>
+<script>
+    var json = [
+        {id:"001",name:"menu1",children:[
+            {id:"0011",name:"menu1-1"},
+            {id:"0012",name:"menu1-2"},
+            {id:"0013",name:"menu1-3"}
+        ]},
+        {id:"002",name:"menu2",children:[
+            {id:"0021",name:"menu2-1"},
+            {id:"0022",name:"menu2-2"},
+            {id:"0023",name:"menu2-3"}
+        ]},
+        {id:"003",name:"menu3"}
+
+    ]
+    window.onload = init;
+    function init(){
+
+        var menu = document.getElementById("leftMenu");
+        var content = $(".content");
+        var ul = document.createElement("ul");
+        menu.appendChild(ul);
+        for(var i = 0; i < json.length; i++){
+            var li = document.createElement("li");
+            li.innerHTML = json[i].name;
+            li.id = json[i].id;
+            li.show = false;
+            if(json[i].children){
+                var cul = document.createElement("ul");
+                cul.id = json[i].id+"ul";
+                $(cul).hide();
+                li.appendChild(cul);
+                for(var j = 0; j < json[i].children.length; j++){
+                    var obj = json[i].children;
+                    var cli =  document.createElement("li");
+                    cli.innerHTML = obj[j].name;
+                    cli.id = obj[j].id;
+                    cli.parentId = json[i].id;
+                    cul.appendChild(cli);
+                    cli.onclick = function(evt){
+                        $(this).siblings().css("background-color","white");
+                        $("#"+this.parentId).siblings().css("background-color","white");
+                        $("#"+this.parentId).siblings().children().children().css("background-color","white");
+                        $(this).css("background-color","red");
+                        content.html(this.innerHTML);
+                        evt.stopPropagation();
+                        //openMenuNode 展开一级菜单的id  currentNode 当前选中的二级菜单
+                        var jsondata = {openMenuNode : this.parentId , currentNode : this.id};
+                        localStorage.setItem("mark",JSON.stringify(jsondata));
+                        //刷新页面以后去缓存获取保存的数据，在根据这个数据去改变菜单的展开
+                        //localStorage.getItem("mark");
+                    }
+                }
+            }
+
+            li.onclick = function(evt){
+                dispaly(this,evt);
+                content.html($(this).html());
+                if($(this).children().length === 0){
+                    var jsondata = {openMenuNode : this.id , currentNode : null};
+                    localStorage.setItem("mark",JSON.stringify(jsondata));
+                    $("#"+this.id).siblings().css("background-color","white");
+                    $("#"+this.id).siblings().children().children().css("background-color","white");
+                    $("#"+this.id).css("background-color","red");
+                }
+            }
+            ul.appendChild(li);
+        }
+
+        function dispaly(obj,evt){
+            if(obj.show){
+                obj.show = false;
+                $("#"+obj.id+"ul").css("display","none");
+            }else{
+                obj.show = true;
+                $("#"+obj.id+"ul").css("display","block");
+            }
+        }
+
+        //读取缓存数据
+        if(localStorage.getItem("mark")){
+            var data = JSON.parse(localStorage.getItem("mark"));
+            //设置父节点展开
+            $("#"+data.openMenuNode).children().show();
+            //设置子节点选中
+            if(data.currentNode){
+                $("#"+data.currentNode).css("background-color","red");
+            }else{
+                $("#"+data.openMenuNode).css("background-color","red");
+            }
+        }
+    }
+</script>
+</body>
+</html>

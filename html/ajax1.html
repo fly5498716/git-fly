@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<style>
+    .title{line-height: 30px;clear: both}
+    .show{width:60%;height:100%;z-index: 1;padding-top:5px;padding-left:10px;float: left;}
+    .show>div{width:100px;height:100px;border:2px solid black}
+    .menu{width:280px;height:200px;position: relative;top:200px;right:50px;z-index: 3;float: left;border: 15px solid #ccc;opacity: .5}
+    .menu ul{margin:5px 5px;padding:0px 0px;}
+    .menu ul li {float: left;width:50px;line-height: 30px;list-style: none;cursor: pointer;text-align: center}
+    .mask{z-index: 2;width:100%;height:100%;background-color: #cccccc;opacity: .25}
+    .hide{display:none}
+    .active{color:white;background-color: #0000ee}
+</style>
+<body>
+    <div class="title">
+      <label>设置颜色</label>
+      <button id="btn">点击设置</button>
+    </div>
+    <div id="sh" class="show">
+      <div id="box"></div>
+  </div>
+  <div id="mu" class="menu hide">
+      <ul id="cls"><li>颜色:</li></ul>
+      <ul id="whs"><li>宽度:</li></ul>
+      <ul id="hts"><li>高度:</li></ul>
+      <ul>
+          <li style="width:100px">
+              <button id="no">恢复</button>
+              <button id="ok">确定</button>
+          </li>
+      </ul>
+  </div>
+  <div id="mask" class="mask hide"></div>
+<script>
+    //ajax请求
+    var colors = ["red","pink","green","yellow"],
+            widths = [100,200,300,400],
+            heights = [100,200,300,400],//color,height,width
+            oArray = ["red",100,100],
+            array = [],
+            $id = function(id) {
+                return document.getElementById(id);
+            },$all = function(el) {
+                return document.querySelectorAll(el);
+            },_box = $id("box");
+
+            $id("mask").style.width = window.innerWidth+"px";
+            $id("mask").style.height = window.innerHeight+"px";
+            //设置
+            $id("btn").onclick = function() {
+                if($id("mask").className.indexOf("hide") !== -1){
+                    $id("mask").className = "mask";
+                    $id("mu").className = "menu";
+                }else{
+                    $id("mask").className = "mask hide";
+                    $id("mu").className = "menu hide";
+                }
+            }
+            function change(el,li) {
+                var childs = el.childNodes;  //得到s的全部子节点
+                for(var o = 0; len = childs.length,o<len;o++){
+                    childs[o].className = "";
+                }
+                li.className = "active";
+                var els = $all(".active");
+                array = [];
+                for(var i = 0; i<els.length; i++){
+                    array.push(els[i].innerHTML);
+                }
+                _box.style.backgroundColor = array[0];
+                _box.style.width = array[1]+"px";
+                _box.style.height = array[2]+"px";
+            }
+
+            function init(id,data) {
+                for(var i = 0; i<data.length; i++){
+                    var li = document.createElement("li");
+                    li.innerHTML = data[i];
+                    li.pid = id;
+                    if(id === "cls"){
+                        li.style.backgroundColor = data[i];
+                    }
+                    if(i === 0){
+                        li.className="active";
+                    }
+                    li.onclick = function(){
+                        change($id(this.pid),this);
+                    };
+                    $id(id).appendChild(li);
+                }
+            }
+
+
+            init("cls",colors);
+            init("whs",widths);
+            init("hts",heights);
+            $id("no").onclick = function(){
+                $id("mask").className = "mask hide";
+                $id("mu").className = "menu hide";
+                _box.style.color = oArray[0];
+                _box.style.width = oArray[1]+"px";
+                _box.style.height = oArray[2]+"px";
+            }
+
+            $id("ok").onclick = function(){
+                $id("mask").className = "mask hide";
+                $id("mu").className = "menu hide";
+                oArray = array;
+            }
+</script>
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<p> 点击这个按钮，获得基于时间的问候 </p>
+<div id="demo"></div>
+<button onclick="myFunction()">点击这里</button>
+<script>
+    var str = [1, 1, 2, 2],
+            str1 = ["a", "b", "c", "d"],
+            _array = [],
+            _array1 = [],
+            json = {};
+    str.forEach(function(val){
+        if (!json[val]) {
+            json[val] = 1;
+            _array.push(val);
+        }
+    });
+
+    for(var i = 0; i<=str1.length; i++){
+        if ((i + 1) % 2 === 0) {
+            _array1.push((str1[i-1]+","+str1[i]));
+        }
+    }
+    console.log(_array);
+    console.log(_array1);
+</script>
+</body>
+</html>

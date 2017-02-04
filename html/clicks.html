@@ -1,0 +1,157 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=uft-8">
+    <title>Untitled Document</title>
+
+    <style type="text/css">
+        .b {
+            background-color: blue;
+            color: white;
+        }
+        #main{
+            width:98%;
+            height:50px;
+            text-align: center;
+        }
+        #main div{
+            width: 50px;
+            height: 50px;
+            line-height: 50px;
+            border: 1px solid #ccc;
+            text-align: center;
+            font-size: 13px;
+            float: left;
+            margin-right:3px;
+            color: red;
+        }
+        i{
+            color: red;
+            font-family: inherit;
+        }
+    </style>
+    <script type="text/javascript">
+    </script>
+
+</head>
+<body>
+<div id="main">
+    <div>init</div>
+    <div>init</div>
+    <div>init</div>
+    <div>init</div>
+    <div>init</div>
+    <div>init</div>
+    <div>init</div>
+    <div>init</div>
+    <div>init</div>
+    <div>init</div>
+    <div>init</div>
+    <div>init</div>
+    <div>init</div>
+    <div>init</div>
+    <div>init</div>
+    <div>init</div>
+    <div>init</div>
+    <div>init</div>
+    <div>init</div>
+    <div>init</div>
+</div>
+<div style="width:100%">
+    <hr>
+    <button>run</button>
+    <hr>
+    <span></span><br>
+    <span></span><br>
+    <a style="cursor: text"></a>
+</div>
+
+<script src="../js/zepto.js"></script>
+<script>
+
+    var t,t1,markJson = [],unMarkJson = [], divs = $("#main div"),spans = $("span"),timeHTML = $("a"),time = 1,time1=1;
+
+    //随机放置五个
+    function RandomColor(){
+        var array = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20];
+        for(var i = 0; i< 5; i++){
+            var id = Math.ceil(Math.random() * 20);
+//            console.log(id);
+            var node = $(divs[id-1]);
+            node.addClass("b");
+            markJson.push(id);
+            array = array.filter(function(item){
+                return item !== id;
+            });
+            unMarkJson = array;
+        }
+        $(spans[0]).html("use : <i>"+markJson.length +"</i>");
+        $(spans[1]).html("unuse : <i>"+unMarkJson.length +"</i>");
+
+//        console.log(JSON.stringify(markJson));
+//        console.log(JSON.stringify(unMarkJson));
+    }
+
+    $("button").click(function(){
+        mark();
+        unmark();
+    });
+
+    //标记
+    function mark(){
+
+        $(timeHTML[0]).html("use time : <i>"+time+"</i> s");
+        if(unMarkJson.length === 0){
+            close();
+            alert("not mark div!");
+        }else {
+            var index = Math.ceil(Math.random() * unMarkJson.length);
+            index = index-1;
+            var node = $(divs[unMarkJson[index] - 1]);
+            node.addClass("b");
+            node.html("use");
+            markJson.push(unMarkJson[index]);
+            unMarkJson = unMarkJson.filter(function(item){
+                return item !== unMarkJson[index];
+            });
+        }
+        $(spans[0]).html("use : <i>"+markJson.length +"</i> ");
+        $(spans[1]).html("unuse : <i>"+unMarkJson.length +"</i> ");
+        time++;
+        t = setTimeout('mark()',1000);
+    }
+
+    //清除标记
+    function unmark(){
+        $(timeHTML[0]).html("use time : <i>"+time1+"</i> s");
+        if(markJson.length === 0){
+            close();
+            alert("not unmark div!");
+        }else {
+            var index = Math.ceil(Math.random() * markJson.length);
+            index = index-1;
+            unMarkJson.push(markJson[index]);
+            var node = $(divs[markJson[index] - 1]);
+            node.removeClass("b");
+            node.html("unuse");
+            markJson = markJson.filter(function(item){
+                return item !== markJson[index];
+            });
+        }
+        $(spans[0]).html("use : <i>"+markJson.length +"</i>");
+        $(spans[1]).html("unuse : <i>"+unMarkJson.length +"</i>");
+        time1++;
+        t = setTimeout('unmark()',1000);
+    }
+
+    function close(){
+        clearTimeout(t);
+        clearTimeout(t1)
+    }
+
+    RandomColor();
+
+</script>
+</body>
+</html>
+

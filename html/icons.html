@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<style>
+    .icon{
+        width:20px;
+        height: 20px;
+        border-radius: 10px;
+        color:white;
+        text-align: center;
+        font-weight: bold;
+    }
+    .ok{
+        background-color: limegreen;
+    }
+    .e{
+        background-color: red;
+    }
+</style>
+<body>
+    <div class="icon ok">√</div>
+    <div class="icon e">X</div>
+    <table id="lists">
+        <tr>
+            <td>
+                <input type="checkbox" checked="checked"/>
+            </td>
+            <td>210</td>
+            <td>000</td>
+        </tr>
+        <tr>
+            <td>
+                <input type="checkbox"/>
+            </td>
+            <td>211</td>
+            <td>111</td>
+        </tr>
+        <tr>
+            <td>
+                <input type="checkbox" checked="checked"/>
+            </td>
+            <td>212</td>
+            <td>2222</td>
+        </tr>
+    </table>
+<script src="../js/zepto.js"></script>
+<script>
+    var cks = $("input[type='checkbox']:checked");
+    cks.forEach(function(ck){
+        var tr = $(ck).parent().parent();
+        var line = $(tr).index();
+        var tds = $(ck).parent().siblings();
+        var trHtml = "第"+(line+1)+"行数据";
+        tds.forEach(function(td){
+            trHtml += " "+$(td).html();
+        });
+        console.log(trHtml)
+    })
+</script>
+</body>
+</html>

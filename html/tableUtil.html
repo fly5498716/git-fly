@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<table>
+    <tbody>
+    <tr class="pid sell_click">
+        <td style="text-align:center">全局</td>
+        <td style="text-align:center;">
+            <label style="display:inline-block">
+                <input type="radio" checked="checked" name="quanju" value="1"  />
+                串行</label>
+
+            <label style="display:inline-block">
+                <input  type="radio"  name="quanju" value="2" /> 并行
+            </label>
+        </td>
+        <td style="text-align:center">
+            <button class="btn btn-success" type="button"  value='all'><i class="icon-save"></i> 确定</button>
+        </td>
+    </tr>
+
+    <tr class="pid sell_click">
+        <td style="text-align:center">世纪城机房</td>
+        <td style="text-align:center;">
+            <label style="display:inline-block">
+                <input type="radio" checked="checked" name="id_251658241" value="1"  />
+                串行</label>
+
+            <label style="display:inline-block">
+                <input  type="radio"   name="id_251658241" value="0" /> 并行
+            </label>
+        </td>
+        <td style="text-align:center">
+            <button class="btn btn-success" type="button" value='111' ><i class="icon-save"></i> 确定</button>
+        </td>
+    </tr><tr class="pid sell_click">
+        <td style="text-align:center">福地机房</td>
+        <td style="text-align:center;">
+            <label style="display:inline-block">
+                <input type="radio" checked="checked" name="id_251659241" value="1"  />
+                串行</label>
+
+            <label style="display:inline-block">
+                <input  type="radio"   name="id_251659241" value="0" /> 并行
+            </label>
+        </td>
+        <td style="text-align:center">
+            <button class="btn btn-success" type="button" value='111' ><i class="icon-save"></i> 确定</button>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<script src="../js/zepto.js"></script>
+<script>
+    window.onload = function(){
+        var btns = $("table button");
+        for(var i = 0;i<btns.length; i++){
+            $(btns[i]).click(function(){
+                var beforeNode = $(this).parent().prev();
+                var childNodes = $(beforeNode).children();//label
+                console.log($($(childNodes[0]).children()[0]).val()+"---"+$($(childNodes[1]).children()[0]).val());
+            })
+        }
+    }
+</script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>test</title>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8"/>
+</head>
+<style>
+    .input-box {
+        width: 210px;
+        height: 28px;
+        border-bottom: 1px solid #ccc;
+        text-indent: 6px;
+        font-size: 14px;
+        font-family: "微软雅黑";
+        line-height: 28px;
+        color: #ccc;
+        margin-top: 8px;
+        margin-left: 22px;
+    }
+</style>
+<body>
+<div class="intermediate_input_box">
+    <input type="text" id="mobile" name="mobile" class="input-box" value="请输入手机号或邮箱">
+    <input type="text" id="password_txt" class="input-box" value="密码" onclick="changetxt()">
+    <input type="password" id="password" class="input-box" onclick="changepassword()" style="display:none;" >
+</div>
+<script type="text/javascript">
+    //假如这是后台校验是否保存密码,保存就返回帐号密码给前台
+//    ajax({
+        //data是后台响应数据
+//    })
+    var data = {mobile:18956566565,password:952741};
+    if(data.password){
+        //执行变化
+        init();
+    }
+    function init(){
+        var mobile = document.getElementById('mobile');
+        var pwd_txt = document.getElementById('password_txt');
+        var pwd = document.getElementById('password');
+        pwd_txt.style.display = 'none';
+        pwd.style.display = 'block';
+        pwd.value = data.password;
+        mobile.value = data.mobile;
+    }
+    function changetxt() {
+        objtxt = document.getElementById('password_txt');
+        objpassword = document.getElementById('password');
+        objtxt.style.display = 'none';
+        objpassword.style.display = 'block';
+        objpassword.focus();
+    }
+    function changepassword() {
+        objtxt = document.getElementById('password_txt');
+        objpassword = document.getElementById('password');
+        if (objpassword.value == '') {
+            objtxt.style.display = '';
+            objpassword.style.display = 'none';
+            objtxt.value = '密码';
+        }
+    }
+</script>
+</body>
+</html> 

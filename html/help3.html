@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<style>
+    #menu li>ul{
+        display: none;
+        list-style: none;
+    }
+    #menu li>ul li{
+        background-color: #1a1a1a;
+        height: 30px;
+        line-height: 30px;
+        width: 100px;
+        text-align: center;
+        color: white;
+        border-top: 1px #ccc solid;
+    }
+    #menu> li{
+        list-style: none;
+    }
+</style>
+<body>
+    <ul id="menu">
+        <li><a>个人中心</a>
+            <ul>
+                <li>a</li>
+                <li>a</li>
+                <li>a</li>
+                <li>a</li>
+            </ul>
+        </li>
+        <li><a>个人中心1</a>
+            <ul>
+                <li>aa</li>
+                <li>aa</li>
+                <li>aa</li>
+                <li>aa</li>
+            </ul>
+        </li>
+        <li><a>个人中心2</a>
+            <ul>
+                <li>aaa</li>
+                <li>aaa</li>
+                <li>aaa</li>
+                <li>aaa</li>
+            </ul>
+        </li>
+    </ul>
+<script src="../js/jquery.js"></script>
+<script>
+    $("#menu li").bind("mouseover",function(){
+        $(this).children("ul").show();
+    });
+    //离开隐藏自己看要不要
+    $("#menu li").bind("mouseleave",function(){
+        $(this).children("ul").hide();
+    });
+</script>
+</body>
+</html>

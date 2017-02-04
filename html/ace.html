@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div class="ui-widget-overlay ui-front"></div>
+<div class="ui-dialog ui-widget ui-widget-content ui-corner-all ui-front ui-dialog-buttons ui-draggable" tabindex="-1"
+     role="dialog" aria-describedby="swin" aria-labelledby="ui-id-1"
+     style="height: auto; width: 928px; top: 119px; left: 376px; display: block;">
+    <div class="ui-dialog-titlebar ui-widget-header ui-corner-all ui-helper-clearfix"><span id="ui-id-1"
+                                                                                            class="ui-dialog-title">弹性云配置</span>
+        <button class="ui-button ui-widget ui-state-default ui-corner-all ui-button-icon-only ui-dialog-titlebar-close"
+                role="button" aria-disabled="false" title="close"><span
+                class="ui-button-icon-primary ui-icon ui-icon-closethick"></span><span
+                class="ui-button-text">close</span></button>
+    </div>
+    <div id="swin" style="width: auto; min-height: 0px; max-height: none; height: 539px;"
+         class="ui-dialog-content ui-widget-content">
+        <form id="OrderConfig">
+            <link type="text/css" rel="stylesheet" href="http://my.1234yun.com/ve/css/fuzhu.css">
+            <link type="text/css" rel="stylesheet" href="http://my.1234yun.com/ve/css/oino.css" media="all">
+            <script type="text/javascript" src="http://my.1234yun.com/ve/js/XChX.js"></script>
+            <script type="text/javascript" src="http://my.1234yun.com/ve/js/jsloading.js"></script>
+            <div style="display: block;">
+                <div class="ui-dialog-content" style=" width: auto; min-height: 0px; max-height: none; height: 539px;">
+                    <div class="creat_inst">
+                        <div id="instance">
+                            <div class="run-instances">
+                                <div class="wizard" style="width: 599px;">
+                                    <ol class="wizard-nav">
+                                        <li class="step1 current">基本配置<span><hr>1</span></li>
+                                        <li class="step2">系统配置<span><hr>2</span></li>
+                                        <li class="step3">付款周期<span><hr>3</span></li>
+                                        <li class="step4">服务条款<span>4</span></li>
+                                    </ol>
+                                    <div class="wizard-content" style="width: 599px; height: 0px;">
+                                        <div class="step step-1" style="width: 599px;">
+                                            <div class="step-inner">
+                                                <div class="backbone-ui list images"><h5></h5>
+
+                                                    <div class="toolbar">
+                                                        <div class="provider">弹性云，自由配</div>
+                                                    </div>
+                                                    <div class="list-wrapper system"><br>CPU:<span class="ptext">　5.00元/核</span>
+
+                                                        <div id="sl_cpu"
+                                                             class="ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all"
+                                                             aria-disabled="false">
+                                                            <div class="ui-slider-range ui-widget-header ui-corner-all ui-slider-range-min"
+                                                                 style="width: 33.3333%;"></div>
+                                                            <a class="ui-slider-handle ui-state-default ui-corner-all"
+                                                               href="#" style="left: 33.3333%;"></a></div>
+                                                        <br><br>内存:<span class="ptext">0.16元/MB</span>
+
+                                                        <div id="sl_ram"
+                                                             class="ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all"
+                                                             aria-disabled="false">
+                                                            <div class="ui-slider-range ui-widget-header ui-corner-all ui-slider-range-min"
+                                                                 style="width: 12.5%;"></div>
+                                                            <a class="ui-slider-handle ui-state-default ui-corner-all"
+                                                               href="#" style="left: 12.5%;"></a></div>
+                                                        <br><br>I/O优化：
+                                                        <div data-id="2" maxapply="50" disk-type="sas"
+                                                             class="types-options node-options selected">免费开启
+                                                        </div>
+                                                        <br><br>硬盘:<span class="ptext">1.00元/GB</span>
+
+                                                        <div id="sl_disk"
+                                                             class="ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all"
+                                                             aria-disabled="false">
+                                                            <div class="ui-slider-range ui-widget-header ui-corner-all ui-slider-range-min"
+                                                                 style="width: 50%;"></div>
+                                                            <a class="ui-slider-handle ui-state-default ui-corner-all"
+                                                               href="#" style="left: 50%;"></a></div>
+                                                        <br><br>带宽<span style="display:none;"
+                                                                        class="ptext">不限流量</span><span class="ptext">10.00元/Mb</span>
+
+                                                        <div id="sl_port"
+                                                             class="ui-slider ui-slider-horizontal ui-widget ui-widget-content ui-corner-all"
+                                                             aria-disabled="false">
+                                                            <div class="ui-slider-range ui-widget-header ui-corner-all ui-slider-range-min"
+                                                                 style="width: 30%;"></div>
+                                                            <a class="ui-slider-handle ui-state-default ui-corner-all"
+                                                               href="#" style="left: 30%;"></a></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="step-action"><input type="button" value="下一步" data-dir="next"
+                                                                            class="btn btn-next"></div>
+                                        </div>
+                                        <div class="step step-2 hide" style="width: 599px;">
+                                            <div class="step-inner"><br><br>云服务器系统：
+                                                <button class="btn_vos dialog_button ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only"
+                                                        role="button" aria-disabled="false"
+                                                        style="color: rgb(0, 0, 0); font-weight: bold;"><span
+                                                        class="ui-button-text">选择操作系统</span></button>
+                                                <br><br><br>云服务器别名：<input class="text" style="width:218px;" name="vname"
+                                                                          value="MyServer"><br><br><br>云服务器密码：<input
+                                                        class="text" style="width:218px;" name="vname" value="创建后自动生成"
+                                                        readonly="readonly"><br><br><br>IP地址数量：<select
+                                                        class="price_select" name="ipcount">
+                                                    <option value="1">1个</option>
+                                                    <option value="2">2个</option>
+                                                    <option value="3">3个</option>
+                                                    <option value="4">4个</option>
+                                                    <option value="5">5个</option>
+                                                    <option value="6">6个</option>
+                                                    <option value="7">7个</option>
+                                                    <option value="8">8个</option>
+                                                    <option value="9">9个</option>
+                                                    <option value="10">10个</option>
+                                                    <option value="11">11个</option>
+                                                    <option value="12">12个</option>
+                                                    <option value="13">13个</option>
+                                                    <option value="14">14个</option>
+                                                    <option value="15">15个</option>
+                                                    <option value="16">16个</option>
+                                                    <option value="17">17个</option>
+                                                    <option value="18">18个</option>
+                                                    <option value="19">19个</option>
+                                                    <option value="20">20个</option>
+                                                </select> <span class="ip_price">单价：10元/个</span><br><br><br>快照:<select
+                                                        class="price_select" name="snapshot">
+                                                    <option value="0">0个</option>
+                                                    <option value="1">1个</option>
+                                                    <option value="2">2个</option>
+                                                    <option value="3">3个</option>
+                                                </select> <span class="snapshot_price">单价：10元/个</span> 完整备份:<select
+                                                        class="price_select" name="full_backup">
+                                                    <option value="0">0个</option>
+                                                    <option value="1">1个</option>
+                                                    <option value="2">2个</option>
+                                                </select> <span class="full_backup_price">单价：20元/个</span></div>
+                                            <div class="step-action"><input type="button" value="上一步" data-dir="prev"
+                                                                            class="btn btn-prev"><input type="button"
+                                                                                                        value="下一步"
+                                                                                                        data-dir="next"
+                                                                                                        class="btn btn-next">
+                                            </div>
+                                        </div>
+                                        <div class="step step-3 hide" style="width: 599px;">
+                                            <div class="step-inner">
+                                                <div class="linetype"><br><br>
+
+                                                    <p id="pcycle">付款周期：<br><br><label><input type="radio"
+                                                                                              name="baseprice"
+                                                                                              value="1_68_1">月</label><br>　<br><br><label><input
+                                                            type="radio" name="baseprice"
+                                                            value="3_204_1">季付(10.0折)</label><br>　<br><br><label><input
+                                                            type="radio" name="baseprice"
+                                                            value="6_408_1">半年付(10.0折)</label><br>　<br><br><label><input
+                                                            type="radio" name="baseprice"
+                                                            value="12_816_1">年付(10.0折)</label><br>　</p><input
+                                                            type="hidden" name="serverid" value="1"><input type="hidden"
+                                                                                                           name="vos"><input
+                                                            type="hidden" name="imageid"></div>
+                                            </div>
+                                            <div class="step-action"><input type="button" value="上一步" data-dir="prev"
+                                                                            class="btn btn-prev"><input type="button"
+                                                                                                        value="下一步"
+                                                                                                        data-dir="next"
+                                                                                                        class="btn btn-next">
+                                            </div>
+                                        </div>
+                                        <div class="step step-4 hide" style="width: 599px;">
+                                            <div class="step-inner">2</div>
+                                            <div class="step-action"><input type="button" value="上一步" data-dir="prev"
+                                                                            class="btn btn-prev"><input type="button"
+                                                                                                        value="创建"
+                                                                                                        class="btn btn-primary save_edit">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="right_wrap fr" style="margin:-78px auto">
+                            <div class="right_inner"><p class="fl">配置详情</p>
+                                <ul class="fl pt20">
+                                    <li><em>CPU：</em><span class="w200 ng-binding"><input type="text" name="vcpu"
+                                                                                          readonly="readonly"
+                                                                                          style="border: 0px; width: 40px; font-weight: bold;">核</span>
+                                    </li>
+                                    <li><em>内存：</em><span class="w200 ng-binding"><input type="text" name="vram"
+                                                                                         readonly="readonly"
+                                                                                         style="border: 0px; width: 40px; font-weight: bold;">MB</span>
+                                    </li>
+                                    <li><em>云盘：</em><span class="w200 ng-binding"><input type="text" name="vdisk"
+                                                                                         readonly="readonly"
+                                                                                         style="border: 0px; width: 40px; font-weight: bold;">GB</span>
+                                    </li>
+                                    <li><em>带宽：</em><span class="w200 ng-binding"><input type="text" name="vport"
+                                                                                         readonly="readonly"
+                                                                                         style="border: 0px; width: 40px; font-weight: bold;">Mbps</span>
+                                    </li>
+                                    <li><em>流量：</em><span class="w200 ng-binding">网卡无流量限制</span></li>
+                                    <li><em>公网：</em><span class="w200 ng-binding">默认1个独立IP</span></li>
+                                    <li><em>快照：</em><span class="w200 ng-binding">可免费赠送2个</span></li>
+                                    <li><em>备份：</em><span class="w200 ng-binding">可选择是否需要</span></li>
+                                    <li class="totle f14"><em>合计：</em><span
+                                            class="price pr6 w200 ng-binding ng-hide"><strong id="normalPrice"
+                                                                                              class="pricing">68.00
+                                        RMB</strong></span><span class="pr"><em id="overview_time_cycle"
+                                                                                style="width:67px"
+                                                                                ng-bind="selectedValue"
+                                                                                class="ng-binding"></em></span></li>
+                                </ul>
+                            </div>
+                            <div class="txt_desc pt20 pl10 pr10"><span class="pr6 pname">入门型 (512M) 套餐描述：</span></div>
+                            <div class="txt_desc pl10 pr10 pdes">欢迎选购</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <div class="ui-dialog-buttonpane ui-widget-content ui-helper-clearfix">
+        <div class="ui-dialog-buttonset">
+            <button type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only"
+                    role="button" aria-disabled="false"><span class="ui-button-text">马上购买</span></button>
+            <button type="button" class="ui-button ui-widget ui-state-default ui-corner-all ui-button-text-only"
+                    role="button" aria-disabled="false"><span class="ui-button-text">关 闭</span></button>
+        </div>
+    </div>
+</div>
+</body>
+</html>

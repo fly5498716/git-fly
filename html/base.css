@@ -1,0 +1,65 @@
+ul {
+    margin: 0px;
+    padding: 0px;
+    width: 100%;
+}
+
+ul li {
+    list-style: none;
+    float: left;
+    width: 86px;
+    padding: 3px;
+    text-align: center;
+    color: black;
+    background-color: #cccccc;
+    margin-left: 2px;
+}
+
+.ck {
+    color: blue;
+    background-color: aqua;
+}
+
+.btn-class span {
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    border: 1px solid #ccc;
+    font-size: medium;
+    opacity: 0.5;
+    color: black;
+    text-align: center;
+    z-index: 1;
+    cursor: pointer;
+}
+
+.left {
+    position: absolute;
+    left: 5px;
+    top: 40%;
+}
+
+.right {
+    position: absolute;
+    left: 354px;
+    top: 40%;
+}
+
+#main {
+    clear: both;
+    width: 2000px;
+    -ms-transition: all .8s ease-out 0s;
+    -o-transition: all .8s ease-out 0s;
+    -webkit-transition: all .8s ease-out 0s;
+    transition: all .8s ease-out 0s;
+    -moz-transition: all .8s ease-out 0s;
+}
+
+.scrollerwrapper {
+    display: none;
+    width: 374px;
+    line-height: 700px;
+    text-align: center;
+    border: 1px solid #ccc;
+    float: left;
+}

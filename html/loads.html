@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>属性选择器</title>
+
+    <style>
+        ul{
+            list-style: none;
+        }
+    </style>
+</head>
+<body>
+    <ul id="lists"></ul>
+    <script language="javascript" src="../js/zepto.js"></script>
+<script>
+    var json = [
+        {id: "9527", name: "华安", headImg: "../images/001.png"},
+        {id: "9527-1", name: "华安1", headImg: "../images/002.png"},
+        {id: "9527-2", name: "华安2", headImg: "../images/003.png"}
+    ]
+
+    for (var i = 0; len = json.length, i < len; i++) {
+        var li = "<li uid=" + json[i].id + ">" + json[i].name + "<img src=" + json[i].headImg + "></li>";
+        $("#lists").append(li);
+    }
+
+    $("#lists").on("click", "li", function () {
+        console.log($(this).attr("uid"));
+    })
+</script>
+</body>
+</html>

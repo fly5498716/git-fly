@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<style>
+    #dialog{
+        width:250px;
+        height:120px;
+        position:absolute;
+        right:0px;
+        bottom:3px;
+        background-color:green;
+        color:white;
+        text-align: center;
+    }
+    .hide{
+        display: none;
+    }
+</style>
+<body>
+<div id="dialog" class="hide" >
+    <p class="title"></p>
+    <p class="msg"></p>
+    <p class="uname"></p>
+</div>
+<script src="../js/zepto.js"></script>
+<script>
+    function show(){
+        //ajax请求成功响应后执行data是响应的数据
+        $("#dialog").removeClass("hide");
+        var data = {t:'username',m:'content',u:'bbs.csdn.net'};
+        $(".title").html(data.t);
+        $(".msg").html(data.m);
+        $(".uname").html(data.u);
+
+        setTimeout(function(){
+            $("#dialog").addClass("hide");
+        },1500);//1.5秒后隐藏
+    }
+    setInterval('show()',7000);
+</script>
+</body>
+</html>

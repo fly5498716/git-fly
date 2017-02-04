@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"/>
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <title>demo</title>
+    <link rel="stylesheet" type="text/css" href="base.css"/>
+</head>
+<body>
+<div class="btn-class">
+    <span class="left" onclick="prev()">&lt;</span>
+    <span class="right" onclick="next()">&gt;</span>
+</div>
+<div id="screen">
+    <header id="nav">
+        <ul>
+            <li class="ck">
+                <a  href="javascript:" title="Post it" rel="0"><span
+                        class="icon ico-post"></span><span class="text">FT</span></a>
+            </li>
+            <li>
+                <a href="javascript:" title="Calendar" rel="1"><span
+                        class="icon ico-calendar"></span><span class="text">SD</span></a>
+            </li>
+            <li>
+                <a href="javascript:" title="Address" rel="2"><span
+                        class="icon ico-address"></span><span class="text">TD</span></a>
+            </li>
+            <li>
+                <a href="javascript:" title="Map" rel="3"><span class="icon ico-map"></span><span
+                        class="text">FH</span></a>
+            </li>
+        </ul>
+    </header>
+    <div id="main">
+        <div class="scrollerwrapper" style="display: block;background-color: antiquewhite">FT</div>
+        <div class="scrollerwrapper" style="background-color: aqua">SD</div>
+        <div class="scrollerwrapper" style="background-color: aquamarine">TD</div>
+        <div class="scrollerwrapper" style="background-color: blueviolet">FH</div>
+    </div>
+</div>
+<script src="../js/zepto.js"></script>
+<script>
+    //初始化
+    var current = 0, lis = $("#nav ul li"),divs = $("#main").children(".scrollerwrapper");
+    function next(){
+        changeNav("next");
+    }
+
+    function prev(){
+        changeNav("prev");
+    }
+
+    //切换
+    function changeNav(type){
+        if(type === "next"){
+            current++;
+            if(current <= 3){
+                divs.hide();
+                lis.removeClass("ck");
+                $(lis[current]).addClass("ck");
+                $(divs[current]).show();
+                $("#main").css("left","374px");
+            }else{
+                current = 3;
+            }
+        }else{
+            current--;
+            if(current >= 0) {
+                divs.hide();
+                lis.removeClass("ck");
+                $(lis[current]).addClass("ck");
+                $(divs[current]).show();
+                $("#main").css("right", "374px");
+            }else{
+                current = 0;
+            }
+        }
+    }
+</script>
+</body>
+</html>

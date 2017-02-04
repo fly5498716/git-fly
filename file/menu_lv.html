@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<script src="../js/zepto.js"></script>
+<body>
+ <ul id="menu">
+
+ </ul>
+<script>
+    var data = [
+        {
+            "object_id": "1",
+            "object_pid": "-1",
+            "object_name": "权限",
+            "object_url": "11",
+            "role_id": "2"
+        },
+        {
+            "object_id": "2",
+            "object_pid": "1",
+            "object_name": "角色管理",
+            "object_url": "22",
+            "role_id": "2"
+        },
+        {
+            "object_id": "5",
+            "object_pid": "2",
+            "object_name": "33",
+            "object_url": "3",
+            "role_id": "2"
+        },
+        {
+            "object_id": "6",
+            "object_pid": "2",
+            "object_name": "轴承",
+            "object_url": "55",
+            "role_id": "2"
+        },
+        {
+            "object_id": "7",
+            "object_pid": "2",
+            "object_name": "轴承座类",
+            "object_url": "55",
+            "role_id": "2"
+        },
+        {
+            "object_id": "11",
+            "object_pid": "2",
+            "object_name": "6",
+            "object_url": "6",
+            "role_id": "2"
+        },
+        {
+            "object_id": "3",
+            "object_pid": "1",
+            "object_name": "用户管理",
+            "object_url": "33·",
+            "role_id": "2"
+        },
+        {
+            "object_id": "8",
+            "object_pid": "3",
+            "object_name": "优化",
+            "object_url": "99",
+            "role_id": "2"
+        },
+        {
+            "object_id": "9",
+            "object_pid": "3",
+            "object_name": "评价",
+            "object_url": "99",
+            "role_id": "2"
+        },
+        {
+            "object_id": "4",
+            "object_pid": "1",
+            "object_name": "系统管理",
+            "object_url": "44",
+            "role_id": "2"
+        },
+        {
+            "object_id": "10",
+            "object_pid": "1",
+            "object_name": "55",
+            "object_url": "55",
+            "role_id": "2"
+        }
+    ];
+    var json = {},map={};
+    data.forEach(function(item){
+        map[item.object_id] = item;
+      if(!json[item.object_pid]){
+          json[item.object_pid] = item.object_id;
+      }else{
+          json[item.object_pid] = json[item.object_pid]+"|"+ item.object_id;
+      }
+    });
+    console.log(json);
+    var nData = [];
+
+    for(var p in json){
+        var node = map[p];
+        delete map[p];
+        if(node){
+            var ids = json[p].split("|");
+            node.children = [];
+            ids.forEach(function(item){
+                node.children.push(map[item]);
+            })
+            nData.push(node);
+        }
+    }
+
+
+    console.log(nData);
+    var array =[];
+    nData.forEach(function(item){
+        var ul =[];
+        item.children.forEach(function(child){
+            ul.push("<li>"+child.object_name+"</li>")
+        });
+        array.push( "<li>"+item.object_name+"<ul>"+ul.join("")+"</ul></li>");
+    });
+    $("#menu").html(array.join(""));
+</script>
+</body>
+</html>

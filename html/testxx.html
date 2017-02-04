@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div>
+    <span  class="icon-add">添加</span>
+    <sapn  class="icon-del">删除</sapn>
+</div>
+<div class="plan-compare"><a href="#">方<br />案<br />比<br />较<br /><em id="count">10</em></a></div>
+<script>
+    var $id = function(id){
+        return document.getElementById(id);
+    },$all = function(className){
+        return document.querySelectorAll(className);
+    },$one = function(arg){
+        return document.querySelector(arg);
+    }
+
+    $one(".icon-add").onclick = function(){
+        var index = parseInt($id("count").innerHTML);
+        $id("count").innerHTML = (index+1);
+    }
+
+    $one(".icon-del").onclick = function(){
+        var index = parseInt($id("count").innerHTML);
+        $id("count").innerHTML = (index-1);
+    }
+</script>
+</body>
+</html>

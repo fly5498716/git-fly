@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<style>
+    .active{
+        color:red;
+    }
+</style>
+<body>
+<ul id="menu1" class="ul1">
+    <li class="bottomline" name="li1">
+        一级菜单1
+        <ul id="menu1_1" class="ul2"  style="display: none">
+            <li><a name="a2">二级菜单1_1</a>
+                <ul id="menu1_1_1" class="ul3"  style="display: none">
+                    <li><a href="#">三级菜单1_1_1</a></li>
+                    <li><a href="#">三级菜单1_1_2</a></li>
+                    <li><a href="#">三级菜单1_1_3</a></li>
+                </ul>
+            </li>
+            <li><a name="a2">二级菜单1_2</a>
+                <ul id="menu1_1_2" class="ul3"  style="display: none">
+                    <li><a href="#">三级菜单1_2_1</a></li>
+                    <li><a href="#">三级菜单1_2_2</a></li>
+                    <li><a href="#">三级菜单1_2_3</a></li>
+                </ul>
+            </li>
+            <li><a name="a2">二级菜单1_3</a>
+                <ul id="menu1_1_3" class="ul3" style="display: none">
+                    <li><a href="#">三级菜单1_3_1</a></li>
+                    <li><a href="#">三级菜单1_3_2</a></li>
+                    <li><a href="#">三级菜单1_3_3</a></li>
+                </ul>
+            </li>
+        </ul>
+    </li>
+</ul>
+<script src="../js/zepto.js"></script>
+<script>
+    $("#menu1 li").bind("click",function(){
+        $(this).children("ul").show().addClass("active");
+        $(this).siblings("li").children("ul").hide();
+    });
+</script>
+</body>
+</html>

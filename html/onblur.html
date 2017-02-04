@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+    <input type="text" id="name" onblur="validate()">
+    <input type="text" id="name1" onblur="validate()">
+    <input type="text" id="name2" onblur="validate()">
+    <button style="color: #cccccc">submit</button>
+    <script src="../js/zepto.js"></script>
+<script>
+    function validate(){
+        var texts = $("input");
+        var mark = true;
+        for(var i = 0; i<texts.length; i++){
+            if(texts[i].value === "" ){
+                mark = false;
+            }
+        }
+        if(mark){
+            alert("验证通过!")
+            $("button").css("color","green");
+        }else{
+            alert("验证不通过!")
+        }
+    }
+</script>
+</body>
+</html>

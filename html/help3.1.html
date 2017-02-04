@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    .nav{
+        height: 40px;
+        width: 1000px;
+        margin: 0 auto;
+    }
+    .nav-left{
+        width:10px;
+        background:url(../images/nav_left.jpg) ;
+        background-repeat: no-repeat;
+        float: left;
+        height: 40px;
+    }
+    .nav_mid{
+        width: 980px;
+        background: url(../images/nav_bg.jpg);
+        background-repeat: repeat-x;
+        float: left;
+        height: 40px;
+    }
+    .nav_right{
+        width:10px;
+        background:url(../images/nav_right.jpg);
+        background-repeat: no-repeat;
+        float: right;
+        height: 40px;
+    }
+    .nav_mid_left,.nav_mid_right{
+        float: left;
+    }
+    .nav_mid_left{
+        width: 680px;
+    }
+    .nav_mid_right{
+        width: 300px;
+    }
+    .nav_mid_left ul{
+        margin:0px;
+        padding:0px;
+    }
+    .nav_mid_left li{
+        float: left;
+        list-style-type: none;
+        width: 100px;
+        text-align: center;
+        line-height: 40px;
+    }
+    .nav_mid_left a:link,.nav_mid_left a:visited{
+        text-decoration: none;
+        color: black;
+        font-size: 16px;
+        font-family: "微软雅黑"
+    }
+    .nav_mid_left a:hover, .nae_mid_left a:active{
+        text-decoration: none;
+        color: #FF0;
+        font-size: 16px;
+        font-family: "微软雅黑"
+    }
+</style>
+<body>
+<div class="nav ">
+    <div class="nav-left"></div>
+    <div class="nav_mid">
+        <div class="nav_mid_left">
+            <ul>
+                <li><a href="">首页</a></li>
+                <li><a href="">关于慕课</a></li>
+                <li><a href="">新闻动态</a></li>
+                <li><a href="">课程中心</a></li>
+                <li><a href="">在线课程</a></li>
+                <li><a href="">人才招聘</a></li>
+            </ul>
+        </div>
+        <div class="nav_mid_right">
+            <form action="" method="post">
+                <input type="text"  class="search_text" >
+            </form>
+        </div>
+    </div>
+    </div>
+</body>
+</html>

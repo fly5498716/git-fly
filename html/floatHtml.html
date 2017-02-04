@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<style>
+    /*content*/
+    .bankuai {
+        width: 100%;
+        border-top: solid 1px pink;
+        margin: 0rem 0.4rem;
+    }
+
+    .bankuai img {
+        width: 100%;
+        font-size: 0.6rem;
+    }
+
+    .module {
+        margin-top: 0.85rem;
+        float: left;
+        width: 8.425rem;
+        height: 7.6rem;
+        display: inline;
+        border: 1px #ccc solid;
+    }
+
+    .fl {
+        float: left;
+    }
+
+    .fr {
+        float: right;
+    }
+
+    .main {
+        clear: both;
+    }
+
+    .warp {
+        width: 200px;
+        height: 15px;
+        border: 1px #ccc solid;
+        text-align: center;
+        float: left;
+    }
+
+    .warp div {
+        background-color: orange;
+        width: 0px;
+        height: 100%;
+    }
+
+    span {
+        float: left;
+    }
+</style>
+<!--content-->
+<!--<div class="bankuai">-->
+<!--<div class="module fl">-->
+<!--<a href="#"><img src="img/danpin.png"/></a>-->
+<!--</div>-->
+<!--<div class="module fr">-->
+<!--<a href="#"><img src="img/taocan.png"/></a>-->
+<!--</div>-->
+<!--</div>-->
+<div class="main">
+    <input type="radio" name="tp" value="aaa">aaa
+    <input type="radio" name="tp" value="bbb">bbb
+    <input type="radio" name="tp" value="ccc">ccc
+</div>
+
+<span>aaa:</span>
+
+<div class="warp">
+    <div id="aaa"></div>
+</div>
+<span id="aaav"></span>
+<br>
+<span>bbb:</span>
+
+<div class="warp">
+    <div id="bbb"></div>
+</div>
+<span id="bbbv"></span>
+<br>
+<span>ccc:</span>
+
+<div class="warp">
+    <div id="ccc"></div>
+</div>
+<span id="cccv"></span>
+<input type="text" id="txt" />
+<script src="../js/zepto.js"></script>
+<script>
+    //总数
+    var total = 200;
+    var rds = $("input[name='tp']");
+    for (var i = 0; i < rds.length; i++) {
+        if (total > 0) {
+            $(rds[i]).bind("click", function () {
+                var w = parseInt($("#" + this.value).css("width"));
+                $("#" + this.value).css("width", ++w + "px");
+                $("#" + this.value + "v").html(w + "%");
+            })
+            total--;
+        } else {
+            alert("没票了")
+        }
+    }
+</script>
+<script>
+    var index = new Date().getDay();
+    var wk = [];
+    var week = "周一,周二,周三,周四,周五,周六,周日".split(",");
+    for (var i = 0; i < 7; i++) {
+        wk[i] = week[index - 1];
+        if (index > 6) {
+            index = index - 6;
+        } else {
+            index++;
+        }
+    }
+    console.log(wk)
+</script>
+<script src="./js/jquery.js"></script>
+<script>
+    var flag = true;
+    $("#txt")[0].placeholder='上次的值';
+    $("#txt").bind("change",function(){
+        if(flag){
+            $(this).val("");
+            flag = false;
+        }
+    })
+</script>
+</body>
+</html>
